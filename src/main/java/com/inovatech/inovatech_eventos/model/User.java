@@ -7,12 +7,14 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.Length;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,6 +37,8 @@ public class User {
 
   @Length(max = 100, message = "O email deve ter no máximo 100 caracteres")
   @NotBlank(message = "O email não pode estar em branco")
+  @Email(message = "O email deve ter um formato válido")
+  @Column(unique = true)
   private String email;
 
   @Length(max = 100, message = "A senha deve ter no máximo 100 caracteres")

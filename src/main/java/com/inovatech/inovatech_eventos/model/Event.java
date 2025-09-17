@@ -39,9 +39,11 @@ public class Event {
   private String description;
 
   @FutureOrPresent(message = "A data de início deve ser hoje ou no futuro")
+  @NotNull(message = "A data de início é obrigatória")
   private LocalDateTime startDateTime;
 
   @FutureOrPresent(message = "A data de término deve ser hoje ou no futuro")
+  @NotNull(message = "A data de término é obrigatória")
   private LocalDateTime endDateTime;
 
   @Length(max = 200, message = "A localização deve ter no máximo 200 caracteres")
@@ -50,6 +52,7 @@ public class Event {
 
   @ManyToOne
   @JoinColumn(name = "organizer_id", nullable = false)
+  @NotNull(message = "O organizador é obrigatório")
   private User organizer;
 
   @NotNull(message = "A capacidade não pode estar em branco")

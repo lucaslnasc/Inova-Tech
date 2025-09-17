@@ -31,3 +31,25 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Security & Environment ###
+# Arquivos de propriedades com dados sensíveis
+application-prod.properties
+application-local.properties
+.env
+.env.local
+.env.production
+
+# Logs
+logs/
+*.log
+
+### Database ###
+# Arquivos de backup do banco
+*.sql
+*.dump
+
+### Temporary files ###
+*.tmp
+*.temp
+*~
